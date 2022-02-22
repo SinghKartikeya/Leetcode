@@ -1,0 +1,33 @@
+# Leetcode
+leetcode question solution
+
+https://leetcode.com/problems/pascals-triangle/
+
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> nums;
+        for(int i=0;i<numRows;i++)
+        {
+            vector<int> v1;
+            for(int j=0;j<=i;j++)
+            {
+                if(j==0 || j==i)
+                {
+                    //nums[i][j]=1;
+                    //nums[i][i]=1;
+                    v1.push_back(1);
+                    
+                }
+                else
+                {
+                    int sum=nums[i-1][j-1]+nums[i-1][j];
+                    v1.push_back(sum);
+                }
+            }
+            nums.push_back(v1);
+        }
+        return nums;
+        
+    }
+};

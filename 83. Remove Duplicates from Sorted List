@@ -1,0 +1,35 @@
+# Leetcode
+leetcode question solution
+
+83. Remove Duplicates from Sorted List
+c++
+
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        vector<int> fin;
+        ListNode* temp=head;
+        while(temp)
+        {
+            fin.push_back(temp->val);
+            temp=temp->next;
+        }
+        sort(fin.begin(),fin.end());
+        ListNode* dummy=new ListNode(0);
+        ListNode* it=dummy;
+        int i;
+        for( i=0;i<fin.size()-1;i++)
+        {
+            if(fin[i]==fin[i+1])
+                continue;
+            else
+            {
+                it->next=new ListNode(fin[i]);
+                it=it->next;
+            }
+        }
+        it->next=new ListNode(fin[i]);
+                it=it->next;
+        return dummy->next;
+    }
+};
